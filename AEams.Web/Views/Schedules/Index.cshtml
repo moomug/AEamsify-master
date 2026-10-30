@@ -1,0 +1,87 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgery
+
+@{
+    ViewData["Title"] = "Schedules";
+}
+
+@section Styles
+    {
+    <link rel="stylesheet" href="~/assets/plugins/datatables/datatables.bundle.css" />
+}
+    <div class="alert bg-light-primary border border-primary border-3 border-dashed d-flex justify-content-between w-100 p-5 mb-10">
+        <div class="d-flex align-items-center">
+            <div class="symbol symbol-40px me-4">
+                <div class="symbol-label fs-2 fw-semibold text-success">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+                    <span class="svg-icon svg-icon-2 svg-icon-primary">
+                        <svg width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.3" d="M12 6.20001V1.20001H2V6.20001C2 6.50001 2.1 6.70001 2.3 6.90001L5.6 10.2L2.3 13.5C2.1 13.7 2 13.9 2 14.2V19.2H12V14.2C12 13.9 11.9 13.7 11.7 13.5L8.4 10.2L11.7 6.90001C11.9 6.70001 12 6.50001 12 6.20001Z" fill="currentColor" />
+                            <path d="M13 2.20001H1C0.4 2.20001 0 1.80001 0 1.20001C0 0.600012 0.4 0.200012 1 0.200012H13C13.6 0.200012 14 0.600012 14 1.20001C14 1.80001 13.6 2.20001 13 2.20001ZM13 18.2H10V16.2L7.7 13.9C7.3 13.5 6.7 13.5 6.3 13.9L4 16.2V18.2H1C0.4 18.2 0 18.6 0 19.2C0 19.8 0.4 20.2 1 20.2H13C13.6 20.2 14 19.8 14 19.2C14 18.6 13.6 18.2 13 18.2ZM4.4 6.20001L6.3 8.10001C6.7 8.50001 7.3 8.50001 7.7 8.10001L9.6 6.20001H4.4Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </div>
+            </div>
+            <!--begin::Content-->
+            <div class="d-flex flex-column pe-0 pe-sm-10">
+                <h5 class="mb-1">الجدول الزماني</h5>
+            </div>
+            <!--end::Content-->
+        </div>
+        <div>
+            <a asp-action="Create" class="btn btn-sm btn-primary">
+                <i class="bi bi-plus-square-dotted"></i>
+                إنشاء
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+            <div class="card-title">
+                <div class="d-flex align-items-center position-relative my-1">
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
+                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                    <input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="أبحث هنا بعنوان الجدول الزماني" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body pt-0">
+            <div class="table-responsive">
+                <table id="Schedules" class="table table-row-dashed table-row-gray-300 gy-2 align-middle">
+                    <thead>
+                        <tr class="fw-bold fs-6 text-gray-800">
+                            <th class="d-none"></th>
+                            <th> الجدول الزماني </th>
+                            <th> القسم  </th>
+                            <th> الإجازة الإسبوعية </th>
+                            <th>الحالة</th>
+                            <th class="text-end">إجراء</th> 
+                        </tr>
+                    </thead>
+                    <tbody>   
+                        @* TheSchData *@
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+   <input type="hidden" name="__RequestVerificationToken" value="@antiforgery.GetAndStoreTokens(Context).RequestToken" />
+
+
+    @section Plugins
+    {
+    <script src="~/assets/plugins/datatables/datatables.bundle.js"></script>
+}
+
+    @section Scripts
+    {
+    <script src="~/js/schedule.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,10 @@
+﻿global using AEams.Web.Core.Consts;
+global using AEams.Web.Core.Models;
+global using AEams.Web.Core.ViewModels;
+global using AEams.Web.Data;
+global using AEams.Web.Filters;
+global using AutoMapper;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.AspNetCore.Authorization;

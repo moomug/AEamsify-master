@@ -1,0 +1,28 @@
+﻿@model ScheduleUsersFormViewModel
+
+<form asp-action="Create"
+      data-ajax-method="post"
+      data-ajax="true"
+      data-ajax-begin="onModalBegin"
+      data-ajax-success="onAddScheduleSuccess"
+      data-ajax-Failure="showErrorMessage"
+      data-ajax-complete="onModalComplete">
+
+    <input type="hidden" asp-for="ScheduleId" />
+
+    <div class="row">
+        <div class="col">
+            <div class="mb-5">
+                <div class="form-floating mb-2">
+                    <select class="form-select form-select-solid js-select2" data-placeholder="Select an author" asp-for="UserId" asp-items="@Model.User">
+                        <option value="">  إختار موظف </option>
+                    </select>
+                    <label asp-for="UserId"></label>
+                </div>
+                <span asp-validation-for="UserId" class="text-danger d-block"></span>
+            </div>
+        </div>
+    </div>
+
+    <partial name="_ModalFooter" />
+</form>

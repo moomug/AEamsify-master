@@ -1,0 +1,59 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
+
+/*@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');*/
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    /*font-family: 'Reem Kufi Ink', sans-serif;*/
+    /*font-family: 'Tajawal', sans-serif;*/
+    font-family: 'Amiri Quran', serif;
+} 
+
+/* Start Override Bootbox */
+.bootbox-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 0.75rem;
+    z-index: 1;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+/* End Override Bootbox */
+
+
+/* Start Override dateTable */
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+    text-align: center;
+    
+}
+.table tr, .table th .table td {
+    text-align: center;
+}
+/* End Override dateTable */
+
+/* Start Override DropDown */
+.form-floating > .form-select {
+    padding-bottom: 0.225rem;
+}
+/* End Override DropDown */

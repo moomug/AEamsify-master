@@ -1,0 +1,134 @@
+﻿@model ScheduleFormViewModel
+
+@{
+    ViewData["Title"] = "Schedule Form";
+}
+
+<div class="card shadow-sm">
+    <div class="card-header">
+        <h3 class="card-title">@(Model.Id.Equals(0) ? "إضافة" : "تعديل") جدوال زماني</h3>
+    </div>
+    <div class="card-body">
+        <form method="post" asp-controller="Schedules" enctype="multipart/form-data" id="Form">
+            @if (Model.Id > 0)
+            {
+                <input type="hidden" asp-for="Id" />
+            }     
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Title" asp-for="Title" />
+                                    <label asp-for="Title"></label>
+                                </div>
+                                <span asp-validation-for="Title" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select form-select-solid js-select2" data-placeholder="Select an author" asp-for="DepartmentId" asp-items="@Model.Department">
+                                        <option value="">Select an author</option>
+                                    </select>
+                                    <label asp-for="DepartmentId"></label>
+                                </div>
+                                <span asp-validation-for="DepartmentId" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="mb-2">
+                                    <select class="form-select form-select-solid js-select2" data-placeholder="Select categories" asp-for="SelectedScheduleWeekOffs" asp-items="@Model.ScheduleWeekOff">
+                                        <option>Select categories</option>
+                                    </select>
+                                </div>
+                                <span asp-validation-for="SelectedScheduleWeekOffs" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                 
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid js-datepicker" placeholder="Publishing Date" asp-for="StartOne" />
+                                    <label asp-for="StartOne"></label>
+                                </div>
+                                <span asp-validation-for="StartOne" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid js-datepicker" placeholder="Publishing Date" asp-for="EndOne" />
+                                    <label asp-for="EndOne"></label>
+                                </div>
+                                <span asp-validation-for="EndOne" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid js-datepicker" placeholder="Publishing Date" asp-for="StartTwo" />
+                                    <label asp-for="StartTwo"></label>
+                                </div>
+                                <span asp-validation-for="StartTwo" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-5">
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control form-control-solid js-datepicker" placeholder="Publishing Date" asp-for="EndtTwo" />
+                                    <label asp-for="EndtTwo"></label>
+                                </div>
+                                <span asp-validation-for="EndtTwo" class="text-danger d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-md-7">
+                    <div class="mb-5">
+                        <div class="form-floating mb-2">
+                            <textarea class="form-control form-control-solid js-tinymce" placeholder="Description" asp-for="Description"></textarea>
+                            <label asp-for="Description"></label>
+                        </div>
+                        <span asp-validation-for="Description" class="text-danger d-block"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary" form="Form">
+            <span class="indicator-label">
+                Save
+            </span>
+            <span class="indicator-progress">
+                Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+            </span>
+        </button>
+        <a class="btn btn-light text-primary ms-3" asp-action="Index">Cancel</a>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script src="~/assets/plugins/tinymce/tinymce.bundle.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
